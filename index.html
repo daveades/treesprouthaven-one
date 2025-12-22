@@ -13,7 +13,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="/src/style.css">
   <link rel="stylesheet" href="/phosphor/style.css">
 
 </head>
@@ -27,9 +27,9 @@
       </a>
       <nav>
         <ul class="nav-links" id="nav-links">
-          <li><a href="#mission">Our Mission</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#impact">Impact</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/faq.html">FAQ</a></li>
           <li><a href="/contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -51,136 +51,89 @@
         <p>A sanctuary for new beginnings, providing community-based support for those navigating life's most difficult
           chapters.</p>
         <div class="hero-buttons">
-          <a href="#mission" class="btn btn-primary">Our Mission</a>
-          <a href="#services" class="btn btn-outline">Explore Services</a>
+          <a href="/about.html" class="btn btn-primary">Our Mission</a>
+          <a href="/services.html" class="btn btn-outline">Explore Services</a>
         </div>
       </div>
     </section>
 
-    <section id="mission" class="section-mission">
-      <div class="container mission-container">
-        <div class="mission-image-wrapper reveal-right">
-          <img src="/mission-indigenous.png" alt="Indigenous community gathering in a circle" class="mission-image">
-        </div>
-        <div class="mission-text-card reveal stagger-2">
-          <span class="eyebrow">Who We Are</span>
-          <h2>A Foundation for Growth</h2>
-          <p class="lead">TreeSproutHaven is a trauma-informed community organization dedicated to supporting at-risk
-            individuals—particularly those who are marginalized by systemic barriers.</p>
-          <p>We specialize in providing holistic, culturally grounded care with a focus on out-of-detention and
-            diversion, family reunification, and transitional housing programs. Through harm reduction, addiction
-            recovery, mediation services, and Indigenous-led cultural healing initiatives, TreeSproutHaven fosters
-            long-term recovery, reconnection, and reintegration into community life.</p>
-          <p>Our purpose is to create a resilient, culturally safe space for individuals recovering from trauma,
-            addiction, incarceration, and displacement.</p>
-          <a href="#contact" class="btn btn-primary" style="margin-top: var(--spacing-md);">Join Our Community</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="section-services">
+    <!-- About Teaser -->
+    <!-- About Teaser -->
+    <section class="section-about-teaser" style="padding: var(--spacing-xl) 0; background-color: var(--color-white);">
       <div class="container">
-        <div class="section-header reveal">
-          <span class="eyebrow">Our Services</span>
+        <div class="split-layout">
+          <div class="split-image">
+            <img src="/community-gathering.jpg" alt="Community gathering" class="rounded-image"
+              style="height: 100%; object-fit: cover; max-height: 400px; width: 100%; border-radius: 4px;">
+          </div>
+          <div class="split-content" style="display: flex; flex-direction: column; justify-content: center;">
+            <span class="eyebrow">Who We Are</span>
+            <h2 style="font-size: 2.5rem; margin-bottom: var(--spacing-sm);">A Foundation for Growth</h2>
+            <p class="lead" style="margin-bottom: var(--spacing-md); color: #666; line-height: 1.6;">
+              TreeSproutHaven is a trauma-informed community organization dedicated to supporting at-risk
+              individuals—particularly those who are marginalized by systemic barriers. We believe in the power of
+              connection to heal and rebuild.</p>
+            <div>
+              <a href="/about.html" class="btn btn-outline-dark">Read Our Story</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Highlights -->
+    <section class="section-services-highlight" style="padding: var(--spacing-xl) 0; background-color: #fcfbf9;">
+      <div class="container">
+        <div class="section-header" style="text-align: center; margin-bottom: var(--spacing-lg);">
+          <span class="eyebrow">What We Offer</span>
           <h2>Holistic Support</h2>
-          <p style="max-width: 600px; margin: 0 auto; color: #666;">We offer a continuum of care designed to address the
-            physical, emotional, and social needs of our community members.</p>
         </div>
+        <div class="services-grid"
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-md);">
+          <!-- Card 1 -->
+          <div class="service-card reveal stagger-1"
+            style="background: white; padding: var(--spacing-md); border-radius: 2px; text-align: center; border: 1px solid rgba(0,0,0,0.03);">
+            <i class="ph ph-shield-check"
+              style="font-size: 2.5rem; color: var(--color-evergreen); margin-bottom: var(--spacing-sm); display: inline-block; background: var(--color-beige); padding: 12px; border-radius: 50%;"></i>
+            <h3 style="color: var(--color-evergreen); margin-bottom: 0.5rem; font-family: var(--font-heading);">
+              Trauma-Informed Care</h3>
+            <p style="color: #666;">Prioritizing safety, trust, and empowerment in every interaction.</p>
+          </div>
+          <!-- Card 2 -->
+          <div class="service-card reveal stagger-2"
+            style="background: white; padding: var(--spacing-md); border-radius: 2px; text-align: center; border: 1px solid rgba(0,0,0,0.03);">
+            <i class="ph ph-first-aid"
+              style="font-size: 2.5rem; color: var(--color-evergreen); margin-bottom: var(--spacing-sm); display: inline-block; background: var(--color-beige); padding: 12px; border-radius: 50%;"></i>
+            <h3 style="color: var(--color-evergreen); margin-bottom: 0.5rem; font-family: var(--font-heading);">
+              Addiction Recovery</h3>
+            <p style="color: #666;">Peer-led support circles and clinical wraparound case management.</p>
+          </div>
+          <!-- Card 3 -->
+          <div class="service-card reveal stagger-3"
+            style="background: white; padding: var(--spacing-md); border-radius: 2px; text-align: center; border: 1px solid rgba(0,0,0,0.03);">
+            <i class="ph ph-house-line"
+              style="font-size: 2.5rem; color: var(--color-evergreen); margin-bottom: var(--spacing-sm); display: inline-block; background: var(--color-beige); padding: 12px; border-radius: 50%;"></i>
+            <h3 style="color: var(--color-evergreen); margin-bottom: 0.5rem; font-family: var(--font-heading);">
+              Transitional Housing</h3>
+            <p style="color: #666;">Safe, stable housing designed to foster dignity and ownership.</p>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: var(--spacing-lg);">
+          <a href="/services.html" class="btn btn-outline-dark">View All Services</a>
+        </div>
+      </div>
+    </section>
 
-        <div class="services-grid">
-          <div class="service-card reveal stagger-1">
-            <i class="ph ph-shield-check"></i>
-            <h3>Trauma-Informed Care</h3>
-            <p>Prioritizing safety, trust, collaboration, empowerment, and cultural humility in every interaction.</p>
-          </div>
-          <div class="service-card reveal stagger-2">
-            <i class="ph ph-hand-heart"></i>
-            <h3>Harm Reduction</h3>
-            <p>Supporting individuals in reducing negative consequences of substance use while facilitating recovery
-              options.</p>
-          </div>
-          <div class="service-card reveal stagger-3">
-            <i class="ph ph-users-three"></i>
-            <h3>Family Reunification</h3>
-            <p>Certified mediators support participants in repairing family relationships and navigating complex
-              systems.</p>
-          </div>
-          <div class="service-card reveal stagger-4">
-            <i class="ph ph-first-aid"></i>
-            <h3>Addiction Recovery</h3>
-            <p>Peer-led and clinical services, including group therapy, recovery circles, and wraparound case
-              management.</p>
-          </div>
-          <div class="service-card reveal stagger-1">
-            <i class="ph ph-feather"></i>
-            <h3>Indigenous Culture</h3>
-            <p>Centering Indigenous knowledge through elder guidance, land-based healing, and ceremonial supports.</p>
-          </div>
-          <div class="service-card reveal stagger-2">
-            <i class="ph ph-house-line"></i>
-            <h3>Transitional Housing</h3>
-            <p>Safe, stable housing with wraparound supports for employment, education, and long-term stability.</p>
-          </div>
-        </div>
-
-        <div class="facilities-showcase reveal" style="margin-top: var(--spacing-xl);">
-          <div class="carousel" id="facilities-carousel">
-            <div class="carousel-track-container">
-              <ul class="carousel-track">
-                <!-- Slide 1: Housing -->
-                <li class="carousel-slide current-slide">
-                  <div class="split-layout reverse">
-                    <div class="split-content">
-                      <span class="eyebrow">Sanctuaries of Peace</span>
-                      <h3>Transitional Housing</h3>
-                      <p>Our private living quarters are designed to provide safety, dignity, and a sense of ownership.
-                        Each unit is fully furnished and offers a quiet retreat for rest and reflection.</p>
-                      <ul class="feature-list">
-                        <li><i class="ph ph-check-circle"></i> Private, secure apartments</li>
-                        <li><i class="ph ph-check-circle"></i> Family-friendly configurations</li>
-                        <li><i class="ph ph-check-circle"></i> 24/7 Support staff availability</li>
-                      </ul>
-                    </div>
-                    <div class="split-image">
-                      <img src="/housing-indigenous.png" alt="Indigenous family in transitional housing"
-                        class="rounded-image" style="height: 400px; object-fit: cover; width: 100%;">
-                    </div>
-                  </div>
-                </li>
-                <!-- Slide 2: Wellness -->
-                <li class="carousel-slide">
-                  <div class="split-layout reverse">
-                    <div class="split-content">
-                      <span class="eyebrow">Sanctuaries of Peace</span>
-                      <h3>Wellness & Healing</h3>
-                      <p>Our communal wellness spaces are grounded in Indigenous culture, offering a place for ceremony,
-                        counseling, and connection with Elders. Nature is integrated into every design choice.</p>
-                      <ul class="feature-list">
-                        <li><i class="ph ph-check-circle"></i> Smudging and ceremony rooms</li>
-                        <li><i class="ph ph-check-circle"></i> Therapeutic gardens and quiet zones</li>
-                        <li><i class="ph ph-check-circle"></i> Group counseling circles</li>
-                      </ul>
-                    </div>
-                    <div class="split-image">
-                      <img src="/wellness-indigenous.png" alt="Elder offering guidance in wellness room"
-                        class="rounded-image" style="height: 400px; object-fit: cover; width: 100%;">
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <button class="carousel-button carousel-button--left is-hidden">
-              <i class="ph ph-caret-left"></i>
-            </button>
-            <button class="carousel-button carousel-button--right">
-              <i class="ph ph-caret-right"></i>
-            </button>
-            <div class="carousel-nav">
-              <button class="carousel-indicator current-slide"></button>
-              <button class="carousel-indicator"></button>
-            </div>
-          </div>
-        </div>
+    <!-- CTA Section -->
+    <section class="section-cta"
+      style="padding: var(--spacing-xl) 0; background-color: var(--color-evergreen); color: var(--color-white); text-align: center;">
+      <div class="container reveal">
+        <h2 style="color: var(--color-white); margin-bottom: var(--spacing-sm); font-size: 2.5rem;">Ready to Find
+          Support?</h2>
+        <p
+          style="font-size: 1.25rem; opacity: 0.9; margin-bottom: var(--spacing-md); max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+          We are here to listen, support, and help you navigate your journey to recovery and reconnection.</p>
+        <a href="/contact.html" class="btn btn-primary">Get in Touch</a>
       </div>
     </section>
 
@@ -200,9 +153,9 @@
         <div class="footer-links">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="#mission">Mission</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#impact">Impact</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/faq.html">FAQ</a></li>
           </ul>
         </div>
         <div class="footer-contact">
@@ -216,7 +169,7 @@
       </div>
     </div>
   </footer>
-  <script type="module" src="/main.js"></script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>
