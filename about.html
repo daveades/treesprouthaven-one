@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | TreeSproutHaven</title>
@@ -11,32 +12,12 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="phosphor/style.css">
-    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="/src/styles/main.css">
 </head>
 
 <body>
 
-    <header class="site-header" id="header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="TreeSproutHaven Logo">
-                TreeSproutHaven
-            </a>
-            <nav class="nav-links" id="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html" class="active">About</a>
-                <a href="services.html">Services</a>
-                <a href="faq.html">FAQ</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-            <div class="header-actions">
-                <a href="contact.html#support" class="btn btn-primary">Get Support</a>
-                <button class="mobile-menu-btn" id="mobile-menu-btn">
-                    <i class="ph ph-list"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+    <app-navbar></app-navbar>
 
     <main>
         <section class="page-header">
@@ -119,88 +100,10 @@
         </section>
 
         <!-- Team Section -->
-        <section id="team" style="background-color: #fcfbf9; padding: var(--spacing-xl) 0;">
-            <div class="container">
-                <div class="section-header" style="text-align: center; margin-bottom: var(--spacing-lg);">
-                    <span class="eyebrow">Our Leadership</span>
-                    <h2>Meet the Team</h2>
-                </div>
-                <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
-                    <!-- Staff 1 -->
-                    <div
-                        style="background: white; padding: var(--spacing-md); width: 300px; text-align: center; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                        <div
-                            style="width: 100px; height: 100px; background-color: #eee; border-radius: 50%; margin: 0 auto var(--spacing-sm);">
-                        </div>
-                        <h3 style="font-size: 1.25rem;">Sarah Johnson</h3>
-                        <p
-                            style="color: var(--color-gold); font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">
-                            Executive Director</p>
-                        <p style="font-size: 0.9rem; color: #666; margin-top: var(--spacing-xs);">Leading with over 15
-                            years of experience in community advocacy.</p>
-                    </div>
-                    <!-- Staff 2 -->
-                    <div
-                        style="background: white; padding: var(--spacing-md); width: 300px; text-align: center; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                        <div
-                            style="width: 100px; height: 100px; background-color: #eee; border-radius: 50%; margin: 0 auto var(--spacing-sm);">
-                        </div>
-                        <h3 style="font-size: 1.25rem;">David Chen</h3>
-                        <p
-                            style="color: var(--color-gold); font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">
-                            Clinical Director</p>
-                        <p style="font-size: 0.9rem; color: #666; margin-top: var(--spacing-xs);">Overseeing our
-                            holistic wellness and recovery programs.</p>
-                    </div>
-                    <!-- Staff 3 -->
-                    <div
-                        style="background: white; padding: var(--spacing-md); width: 300px; text-align: center; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                        <div
-                            style="width: 100px; height: 100px; background-color: #eee; border-radius: 50%; margin: 0 auto var(--spacing-sm);">
-                        </div>
-                        <h3 style="font-size: 1.25rem;">Elena Rodriguez</h3>
-                        <p
-                            style="color: var(--color-gold); font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">
-                            Outreach Coordinator</p>
-                        <p style="font-size: 0.9rem; color: #666; margin-top: var(--spacing-xs);">Building bridges
-                            between families and support systems.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <img src="logo.png" alt="TreeSproutHaven Logo">
-                        TreeSproutHaven
-                    </a>
-                    <p>Restoring hope and rebuilding lives through holistic, community-based support.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact</h4>
-                    <p>123 Hope Avenue, Sanctuary City</p>
-                    <p>(555) 123-4567</p>
-                    <p>support@treesprouthaven.org</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 TreeSproutHaven. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <app-footer></app-footer>
 
     <script type="module" src="src/main.js"></script>
 </body>

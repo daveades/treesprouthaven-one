@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | TreeSproutHaven</title>
@@ -11,33 +12,12 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="phosphor/style.css">
-    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="/src/styles/main.css">
 </head>
 
 <body>
 
-    <header class="site-header" id="header">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <img src="logo.png" alt="TreeSproutHaven Logo">
-                TreeSproutHaven
-            </a>
-            <nav class="nav-links" id="nav-links">
-                <a href="index.html">Home</a>
-                <a href="index.html#mission">About</a>
-
-                <a href="index.html#services">Services</a>
-                <a href="faq.html">FAQ</a>
-                <a href="contact.html" class="active">Contact</a>
-            </nav>
-            <div class="header-actions">
-                <a href="#support" class="btn btn-primary">Get Support</a>
-                <button class="mobile-menu-btn" id="mobile-menu-btn">
-                    <i class="ph ph-list"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+    <app-navbar></app-navbar>
 
     <main>
         <section class="page-header">
@@ -59,7 +39,7 @@
                             <i class="ph ph-map-pin"></i>
                             <div>
                                 <h3>Visit Us</h3>
-                                <p>123 Hope Avenue<br>Sanctuary City, SC 12345</p>
+                                <p>3-2 Alberta Drive<br>Fort MCMurray T9H 1P3</p>
                             </div>
                         </div>
 
@@ -68,6 +48,7 @@
                             <div>
                                 <h3>Call Us</h3>
                                 <p>(555) 123-4567</p>
+                                <p>Mobile: (587) 989-5665</p>
                                 <p class="small">Available 24/7 for emergencies</p>
                             </div>
                         </div>
@@ -76,7 +57,7 @@
                             <i class="ph ph-envelope"></i>
                             <div>
                                 <h3>Email Us</h3>
-                                <p>support@treesprouthaven.org</p>
+                                <p><a href="mailto:admin@treesprouthaven.com">admin@treesprouthaven.com</a></p>
                             </div>
                         </div>
                     </div>
@@ -112,38 +93,7 @@
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <img src="logo.png" alt="TreeSproutHaven Logo">
-                        TreeSproutHaven
-                    </a>
-                    <p>Restoring hope and rebuilding lives through holistic, community-based support.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html#mission">About Us</a></li>
-                        <li><a href="index.html#services">Services</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact</h4>
-                    <p>123 Hope Avenue, Sanctuary City</p>
-                    <p>(555) 123-4567</p>
-                    <p>support@treesprouthaven.org</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 TreeSproutHaven. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <app-footer></app-footer>
 
     <script type="module" src="src/main.js"></script>
 </body>

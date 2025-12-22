@@ -615,7 +615,7 @@ section {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     :root {
         --spacing-md: 1.5rem;
         --spacing-lg: 2.5rem;

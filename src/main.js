@@ -1,44 +1,6 @@
 // Main JavaScript
-
-// Header scroll effect
-const header = document.getElementById('header');
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const navLinks = document.getElementById('nav-links');
-
-if (header) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-}
-
-// Mobile Menu Toggle
-if (mobileMenuBtn && navLinks) {
-    mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        const icon = mobileMenuBtn.querySelector('i');
-        if (navLinks.classList.contains('active')) {
-            icon.classList.remove('ph-list');
-            icon.classList.add('ph-x');
-        } else {
-            icon.classList.remove('ph-x');
-            icon.classList.add('ph-list');
-        }
-    });
-
-    // Close menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            icon.classList.remove('ph-x');
-            icon.classList.add('ph-list');
-        });
-    });
-}
+import './components/AppNavbar.js';
+import './components/AppFooter.js';
 
 // Scroll Animations (Intersection Observer)
 const observerOptions = {

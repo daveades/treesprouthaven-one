@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="TreeSproutHaven - Restoring Hope, Rebuilding Lives. A community-based support organization." />
@@ -13,34 +13,13 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="/src/styles/main.css">
   <link rel="stylesheet" href="/phosphor/style.css">
 
 </head>
 
 <body>
-  <header class="site-header" id="header">
-    <div class="container nav-container">
-      <a href="/" class="logo">
-        <img src="/logo.png" alt="TreeSproutHaven Logo">
-        TreeSproutHaven
-      </a>
-      <nav>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="/about.html">About</a></li>
-          <li><a href="/services.html">Services</a></li>
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="header-actions">
-        <a href="#support" class="btn btn-primary">Get Support</a>
-        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
-          <i class="ph ph-list"></i>
-        </button>
-      </div>
-    </div>
-  </header>
+  <app-navbar></app-navbar>
 
   <main>
     <section class="hero">
@@ -140,35 +119,7 @@
 
   </main>
 
-  <footer id="contact" class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <a href="/" class="logo">
-            <img src="/logo.png" alt="TreeSproutHaven Logo">
-            TreeSproutHaven
-          </a>
-          <p>Restoring hope and rebuilding lives through holistic, community-based support.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="/about.html">About Us</a></li>
-            <li><a href="/services.html">Services</a></li>
-            <li><a href="/faq.html">FAQ</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <h4>Contact</h4>
-          <p>123 Hope Avenue<br>New Beginnings, NY 10001</p>
-          <p>contact@treesprouthaven.org</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 TreeSproutHaven. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+  <app-footer></app-footer>
   <script type="module" src="/src/main.js"></script>
 </body>
 
