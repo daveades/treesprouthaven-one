@@ -26,7 +26,6 @@ class AppFooter extends HTMLElement {
                 <div class="footer-contact">
                 <h4>Contact</h4>
                 <p>3-2 Alberta Drive<br>Fort MCMurray T9H 1P3</p>
-                <p>Mobile: (587) 989-5665</p>
                 <p><a href="mailto:admin@treesprouthaven.com">admin@treesprouthaven.com</a></p>
                 </div>
             </div>
