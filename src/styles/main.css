@@ -90,7 +90,7 @@ img {
 }
 
 .btn-primary {
-    background-color: #b33a0c;
+    background-color: #9f3a1f;
     color: var(--color-white);
 }
 
@@ -118,12 +118,12 @@ img {
 
 .btn-outline-green {
     background-color: transparent;
-    border: 1px solid #169133;
-    color: #169133;
+    border: 1px solid var(--color-evergreen);
+    color: var(--color-evergreen);
 }
 
 .btn-outline-green:hover {
-    background-color: #169133;
+    background-color: var(--color-evergreen);
     color: var(--color-white);
 }
 
@@ -133,7 +133,7 @@ img {
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--color-gold);
+    color: #9f3a1f;
     margin-bottom: var(--spacing-sm);
     font-weight: 600;
 }
@@ -516,7 +516,7 @@ section {
     left: 0;
     width: 4px;
     height: 0;
-    background-color: #b33a0c;
+    background-color: #9f3a1f;
     transition: height 0.4s ease;
 }
 
@@ -589,7 +589,7 @@ section {
 
 .footer-links h4,
 .footer-contact h4 {
-    color: #b33a0c;
+    color: #9f3a1f;
     margin-bottom: var(--spacing-sm);
     font-size: 1.1rem;
 }
