@@ -90,13 +90,8 @@ img {
 }
 
 .btn-primary {
-    background-color: var(--color-gold);
+    background-color: #b33a0c;
     color: var(--color-white);
-}
-
-.btn-primary:hover {
-    background-color: #b08d4b;
-    transform: translateY(-2px);
 }
 
 .btn-outline {
@@ -118,6 +113,17 @@ img {
 
 .btn-outline-dark:hover {
     background-color: var(--color-evergreen);
+    color: var(--color-white);
+}
+
+.btn-outline-green {
+    background-color: transparent;
+    border: 1px solid #169133;
+    color: #169133;
+}
+
+.btn-outline-green:hover {
+    background-color: #169133;
     color: var(--color-white);
 }
 
@@ -510,7 +516,7 @@ section {
     left: 0;
     width: 4px;
     height: 0;
-    background-color: var(--color-gold);
+    background-color: #b33a0c;
     transition: height 0.4s ease;
 }
 
@@ -583,7 +589,7 @@ section {
 
 .footer-links h4,
 .footer-contact h4 {
-    color: var(--color-gold);
+    color: #b33a0c;
     margin-bottom: var(--spacing-sm);
     font-size: 1.1rem;
 }
