@@ -22,6 +22,24 @@ document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => 
     observer.observe(el);
 });
 
+// FAQ Accordion
+document.querySelectorAll('.faq-item .faq-question').forEach(button => {
+    const item = button.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+
+    if (answer) {
+        answer.style.maxHeight = '0px';
+    }
+
+    button.addEventListener('click', () => {
+        const isOpen = item.classList.toggle('is-open');
+        button.setAttribute('aria-expanded', String(isOpen));
+        if (answer) {
+            answer.style.maxHeight = isOpen ? `${answer.scrollHeight}px` : '0px';
+        }
+    });
+});
+
 
 // Carousel Logic
 const track = document.querySelector('.carousel-track');

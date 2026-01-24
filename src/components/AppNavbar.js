@@ -9,10 +9,10 @@ class AppNavbar extends HTMLElement {
             <div class="container nav-container">
             <a href="/" class="logo">
                 <img src="/logo.png" alt="TreeSproutHaven Logo">
-                TreeSproutHaven
             </a>
             <nav>
                 <ul class="nav-links" id="nav-links">
+                <li><a href="/">Home</a></li>
                 <li><a href="/about.html">About</a></li>
                 <li><a href="/services.html">Services</a></li>
                 <li><a href="/faq.html">FAQ</a></li>
@@ -20,7 +20,7 @@ class AppNavbar extends HTMLElement {
                 </ul>
             </nav>
             <div class="header-actions">
-                <a href="#support" class="btn btn-primary">Get Support</a>
+                <a href="/contact.html" class="btn btn-primary">Get Support</a>
                 <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
                 <i class="ph ph-list"></i>
                 </button>
@@ -31,7 +31,8 @@ class AppNavbar extends HTMLElement {
 
         this.highlightActiveLink();
         this.initMobileMenu();
-        this.initScrollEffect();
+        this.setPersistentHeader();
+        this.toggleSupportButton();
     }
 
     highlightActiveLink() {
@@ -74,16 +75,20 @@ class AppNavbar extends HTMLElement {
         }
     }
 
-    initScrollEffect() {
+    setPersistentHeader() {
         const header = this.querySelector('#header');
         if (header) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
+            header.classList.add('scrolled');
+        }
+    }
+
+    toggleSupportButton() {
+        const supportButton = this.querySelector('.header-actions .btn.btn-primary');
+        if (!supportButton) return;
+
+        const currentPath = window.location.pathname;
+        if (currentPath.endsWith('/contact.html') || currentPath === '/contact.html') {
+            supportButton.style.display = 'none';
         }
     }
 }

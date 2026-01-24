@@ -178,12 +178,16 @@ img {
     gap: var(--spacing-xs);
     /* Always white on hero */
     letter-spacing: 0.5px;
+    height: 40px;
+    overflow: hidden;
 }
 
 .logo img {
-    height: 32px;
+    height: 56px;
     width: auto;
     display: block;
+    object-fit: cover;
+    object-position: center;
 }
 
 .site-header .logo img,
@@ -760,6 +764,90 @@ section {
 .section-contact-form {
     background-color: var(--color-white);
     padding: var(--spacing-xl) 0;
+}
+
+/* FAQ Accordion */
+.faq-item {
+    background-color: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 0;
+    background-color: #9f3a1f;
+    transition: height 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.faq-item.is-open::before,
+.faq-item:hover::before {
+    height: 100%;
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    background: transparent;
+    border: none;
+    padding: 0;
+    text-align: left;
+    font-size: 1.25rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-evergreen);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.faq-question i {
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+    color: var(--color-evergreen);
+}
+
+.faq-item.is-open .faq-question {
+    color: var(--color-evergreen);
+}
+
+.faq-item.is-open .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.25s ease;
+    opacity: 0;
+}
+
+.faq-answer p {
+    color: #666;
+    line-height: 1.6;
+    margin-top: var(--spacing-sm);
+}
+
+.faq-item.is-open .faq-answer {
+    opacity: 1;
 }
 
 .contact-layout {

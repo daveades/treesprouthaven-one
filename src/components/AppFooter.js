@@ -11,7 +11,6 @@ class AppFooter extends HTMLElement {
                 <div class="footer-brand">
                 <a href="/" class="logo">
                     <img src="/logo.png" alt="TreeSproutHaven Logo">
-                    TreeSproutHaven
                 </a>
                 <p>Restoring hope and rebuilding lives through holistic, community-based support.</p>
                 </div>
