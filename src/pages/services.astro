@@ -1,0 +1,226 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Our Services | TreeSproutHaven">
+  <section class="page-header">
+    <div class="container">
+      <h1>Our Services</h1>
+      <p class="lead">Holistic support for body, mind, and spirit.</p>
+    </div>
+  </section>
+
+  <section id="services" class="section-services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">What We Offer</span>
+        <h2>Holistic Support</h2>
+        <p style="max-width: 600px; margin: 0 auto; color: #666;">
+          We offer a continuum of care designed to address the physical,
+          emotional, and social needs of our community members.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal stagger-1">
+          <i class="ph ph-shield-check"></i>
+          <h3>Trauma-Informed Care</h3>
+          <p>
+            Prioritizing safety, trust, collaboration, empowerment, and
+            cultural humility in every interaction.
+          </p>
+        </div>
+        <div class="service-card reveal stagger-2">
+          <i class="ph ph-hand-heart"></i>
+          <h3>Harm Reduction</h3>
+          <p>
+            Supporting individuals in reducing negative consequences of
+            substance use while facilitating recovery options.
+          </p>
+        </div>
+        <div class="service-card reveal stagger-3">
+          <i class="ph ph-users-three"></i>
+          <h3>Family Reunification</h3>
+          <p>
+            Certified mediators support participants in repairing family
+            relationships and navigating complex systems.
+          </p>
+        </div>
+        <div class="service-card reveal stagger-4">
+          <i class="ph ph-first-aid"></i>
+          <h3>Addiction Recovery</h3>
+          <p>
+            Peer-led and clinical services, including group therapy, recovery
+            circles, and wraparound case management.
+          </p>
+        </div>
+        <div class="service-card reveal stagger-1">
+          <i class="ph ph-feather"></i>
+          <h3>Indigenous Culture</h3>
+          <p>
+            Centering Indigenous knowledge through elder guidance, land-based
+            healing, and ceremonial supports.
+          </p>
+        </div>
+        <div class="service-card reveal stagger-2">
+          <i class="ph ph-house-line"></i>
+          <h3>Transitional Housing</h3>
+          <p>
+            Safe, stable housing with wraparound supports for employment,
+            education, and long-term stability.
+          </p>
+        </div>
+      </div>
+
+      <div class="facilities-showcase reveal" style="margin-top: var(--spacing-xl);">
+        <div class="carousel" id="facilities-carousel">
+          <div class="carousel-track-container">
+            <ul class="carousel-track">
+              <li class="carousel-slide current-slide">
+                <div class="split-layout reverse">
+                  <div class="split-content">
+                    <span class="eyebrow">Sanctuaries of Peace</span>
+                    <h3>Transitional Housing</h3>
+                    <p>
+                      Our private living quarters are designed to provide
+                      safety, dignity, and a sense of ownership. Each unit is
+                      fully furnished and offers a quiet retreat for rest and
+                      reflection.
+                    </p>
+                    <ul class="feature-list">
+                      <li><i class="ph ph-check-circle"></i> Private, secure apartments</li>
+                      <li><i class="ph ph-check-circle"></i> Family-friendly configurations</li>
+                      <li><i class="ph ph-check-circle"></i> 24/7 Support staff availability</li>
+                    </ul>
+                  </div>
+                  <div class="split-image">
+                    <img
+                      src="/housing-indigenous.png"
+                      alt="Indigenous family in transitional housing"
+                      class="rounded-image carousel-image"
+                    />
+                  </div>
+                </div>
+              </li>
+              <li class="carousel-slide">
+                <div class="split-layout reverse">
+                  <div class="split-content">
+                    <span class="eyebrow">Sanctuaries of Peace</span>
+                    <h3>Wellness & Healing</h3>
+                    <p>
+                      Our communal wellness spaces are grounded in Indigenous
+                      culture, offering a place for ceremony, counseling, and
+                      connection with Elders. Nature is integrated into every
+                      design choice.
+                    </p>
+                    <ul class="feature-list">
+                      <li><i class="ph ph-check-circle"></i> Smudging and ceremony rooms</li>
+                      <li><i class="ph ph-check-circle"></i> Therapeutic gardens and quiet zones</li>
+                      <li><i class="ph ph-check-circle"></i> Group counseling circles</li>
+                    </ul>
+                  </div>
+                  <div class="split-image">
+                    <img
+                      src="/wellness-indigenous.png"
+                      alt="Elder offering guidance in wellness room"
+                      class="rounded-image carousel-image"
+                    />
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <button class="carousel-button carousel-button--left is-hidden">
+            <i class="ph ph-caret-left"></i>
+          </button>
+          <button class="carousel-button carousel-button--right">
+            <i class="ph ph-caret-right"></i>
+          </button>
+          <div class="carousel-nav">
+            <button class="carousel-indicator current-slide"></button>
+            <button class="carousel-indicator"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const track = document.querySelector<HTMLElement>(".carousel-track");
+  if (track) {
+    const slides = Array.from(track.children) as HTMLElement[];
+    const nextButton = document.querySelector<HTMLButtonElement>(".carousel-button--right")!;
+    const prevButton = document.querySelector<HTMLButtonElement>(".carousel-button--left")!;
+    const dotsNav = document.querySelector<HTMLElement>(".carousel-nav")!;
+    const dots = Array.from(dotsNav.children) as HTMLElement[];
+
+    const moveToSlide = (currentSlide: HTMLElement, targetSlide: HTMLElement) => {
+      const targetIndex = slides.findIndex((s) => s === targetSlide);
+      track.style.transform = `translateX(-${targetIndex * 100}%)`;
+      currentSlide.classList.remove("current-slide");
+      targetSlide.classList.add("current-slide");
+    };
+
+    const updateDots = (currentDot: HTMLElement, targetDot: HTMLElement) => {
+      currentDot.classList.remove("current-slide");
+      targetDot.classList.add("current-slide");
+    };
+
+    const hideShowArrows = (targetIndex: number) => {
+      prevButton.classList.toggle("is-hidden", targetIndex === 0);
+      nextButton.classList.toggle("is-hidden", targetIndex === slides.length - 1);
+    };
+
+    const go = (delta: number) => {
+      const currentSlide = track.querySelector<HTMLElement>(".current-slide")!;
+      const target = delta > 0 ? currentSlide.nextElementSibling : currentSlide.previousElementSibling;
+      if (!target) return;
+      const currentDot = dotsNav.querySelector<HTMLElement>(".current-slide")!;
+      const targetDot = (delta > 0 ? currentDot.nextElementSibling : currentDot.previousElementSibling) as HTMLElement;
+      const idx = slides.findIndex((s) => s === target);
+      moveToSlide(currentSlide, target as HTMLElement);
+      updateDots(currentDot, targetDot);
+      hideShowArrows(idx);
+    };
+
+    nextButton.addEventListener("click", () => go(1));
+    prevButton.addEventListener("click", () => go(-1));
+
+    dotsNav.addEventListener("click", (e) => {
+      const targetDot = (e.target as HTMLElement).closest("button");
+      if (!targetDot) return;
+      const currentSlide = track.querySelector<HTMLElement>(".current-slide")!;
+      const currentDot = dotsNav.querySelector<HTMLElement>(".current-slide")!;
+      const idx = dots.findIndex((d) => d === targetDot);
+      const targetSlide = slides[idx];
+      moveToSlide(currentSlide, targetSlide);
+      updateDots(currentDot, targetDot as HTMLElement);
+      hideShowArrows(idx);
+    });
+
+    let touchStartX = 0;
+    track.addEventListener(
+      "touchstart",
+      (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      },
+      { passive: true },
+    );
+    track.addEventListener(
+      "touchend",
+      (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const threshold = 50;
+        if (touchEndX < touchStartX - threshold) go(1);
+        if (touchEndX > touchStartX + threshold) go(-1);
+      },
+      { passive: true },
+    );
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") go(1);
+      if (e.key === "ArrowLeft") go(-1);
+    });
+  }
+</script>

@@ -1,0 +1,66 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const faqs = [
+  {
+    q: "How do I access services?",
+    a: "You can access our services by contacting us directly through our website, calling our support line, or visiting our center. We prioritize urgent needs and will guide you through our intake process.",
+  },
+  {
+    q: "Is there a cost for support?",
+    a: "Our services are fee-based to ensure the highest quality of care and sustainability. However, we offer financial assistance and sliding scale options for eligible individuals. Please contact our support team to discuss your specific needs and available payment plans.",
+  },
+  {
+    q: "What is \"transitional housing\"?",
+    a: "Transitional housing provides a temporary, supportive living environment for individuals and families moving from crisis or homelessness to permanent housing. We offer wrap-around support services to ensure long-term stability.",
+  },
+  {
+    q: "Can family members visit residents?",
+    a: "Yes, maintaining connections with loved ones is a vital part of recovery. We have designated visiting hours and family-friendly spaces. All visits are coordinated to ensure the safety and privacy of all residents.",
+  },
+];
+---
+
+<Layout title="FAQ | TreeSproutHaven">
+  <section class="page-header">
+    <div class="container">
+      <h1>Frequently Asked Questions</h1>
+      <p class="lead">Common questions about our services and community.</p>
+    </div>
+  </section>
+
+  <section
+    class="section-faq"
+    style="background-color: var(--color-white); padding: var(--spacing-xl) 0;"
+  >
+    <div class="container" style="max-width: 800px;">
+      {faqs.map((f) => (
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            <span>{f.q}</span>
+            <i class="ph ph-caret-down" aria-hidden="true"></i>
+          </button>
+          <div class="faq-answer">
+            <p>{f.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>(".faq-item .faq-question").forEach((button) => {
+    const item = button.closest<HTMLElement>(".faq-item")!;
+    const answer = item.querySelector<HTMLElement>(".faq-answer");
+    if (answer) answer.style.maxHeight = "0px";
+
+    button.addEventListener("click", () => {
+      const isOpen = item.classList.toggle("is-open");
+      button.setAttribute("aria-expanded", String(isOpen));
+      if (answer) {
+        answer.style.maxHeight = isOpen ? `${answer.scrollHeight}px` : "0px";
+      }
+    });
+  });
+</script>
