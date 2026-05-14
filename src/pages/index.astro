@@ -6,7 +6,7 @@ import Layout from "../layouts/Layout.astro";
   <section class="hero">
     <img
       src="/hero-bg.png"
-      alt="Peaceful community center with sunlight filtering through trees"
+      alt="A young plant shoot emerging from the soil"
       class="hero-bg"
     />
     <div class="hero-overlay"></div>
@@ -139,6 +139,112 @@ import Layout from "../layouts/Layout.astro";
   </section>
 
   <section
+    class="section-gallery"
+    style="padding: var(--spacing-xl) 0; background-color: var(--color-white);"
+  >
+    <div class="container">
+      <div
+        class="section-header"
+        style="text-align: center; margin-bottom: var(--spacing-lg);"
+      >
+        <span class="eyebrow" style="color: #9f3a1f;">What We Do</span>
+        <h2 style="color: var(--color-evergreen);">Care in Practice</h2>
+      </div>
+      <div class="carousel home-carousel" id="home-carousel">
+        <div class="carousel-track-container">
+          <ul class="carousel-track">
+            <li class="carousel-slide current-slide">
+              <figure class="carousel-figure">
+                <img src="/housing-indigenous.png" alt="Transitional housing interior" class="carousel-image rounded-image" />
+                <figcaption class="carousel-caption">
+                  <span class="eyebrow">Transitional Housing</span>
+                  <h3>Safe, stable homes</h3>
+                  <p>Furnished living spaces designed for dignity, privacy, and rest while participants rebuild.</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel-slide">
+              <figure class="carousel-figure">
+                <img src="/treesprout_wellness_healing.jpg" alt="Wellness and ceremony room" class="carousel-image rounded-image" />
+                <figcaption class="carousel-caption">
+                  <span class="eyebrow">Wellness & Healing</span>
+                  <h3>Trauma-informed care</h3>
+                  <p>Counseling, ceremony, and Elder-led healing grounded in Indigenous practice.</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel-slide">
+              <figure class="carousel-figure">
+                <img src="/treesprout_community_programs.jpg" alt="Community gathering" class="carousel-image rounded-image" />
+                <figcaption class="carousel-caption">
+                  <span class="eyebrow">Community Programs</span>
+                  <h3>Peer support circles</h3>
+                  <p>Group sessions and shared meals that rebuild connection and accountability.</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel-slide">
+              <figure class="carousel-figure">
+                <img src="/treesprout_cultural_programming.jpg" alt="Cultural programming" class="carousel-image rounded-image" />
+                <figcaption class="carousel-caption">
+                  <span class="eyebrow">Cultural Programming</span>
+                  <h3>Reconnecting with culture</h3>
+                  <p>Land-based activities, language, and traditions woven through everyday care.</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel-slide">
+              <figure class="carousel-figure">
+                <img src="/indigenous_youth_outdoor.jpg" alt="Indigenous youth in an outdoor program" class="carousel-image rounded-image" />
+                <figcaption class="carousel-caption">
+                  <span class="eyebrow">Youth Care</span>
+                  <h3>Support for children and youths</h3>
+                  <p>Land-based learning and structured routines that help young people grow in safety.</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel-slide">
+              <figure class="carousel-figure">
+                <img src="/indigenous_youth_art.jpg" alt="Indigenous youth in an art session" class="carousel-image rounded-image" />
+                <figcaption class="carousel-caption">
+                  <span class="eyebrow">Expressive Therapy</span>
+                  <h3>Healing through creativity</h3>
+                  <p>Art and cultural expression that give participants new ways to process and rebuild.</p>
+                </figcaption>
+              </figure>
+            </li>
+            <li class="carousel-slide">
+              <figure class="carousel-figure">
+                <img src="/indigenous_adults_circle.jpg" alt="Indigenous adults in a support circle" class="carousel-image rounded-image" />
+                <figcaption class="carousel-caption">
+                  <span class="eyebrow">Adult Care</span>
+                  <h3>Support for adults</h3>
+                  <p>Recovery circles and wraparound case management for adults rebuilding stability.</p>
+                </figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+        <button class="carousel-button carousel-button--left is-hidden" aria-label="Previous slide">
+          <i class="ph ph-caret-left"></i>
+        </button>
+        <button class="carousel-button carousel-button--right" aria-label="Next slide">
+          <i class="ph ph-caret-right"></i>
+        </button>
+        <div class="carousel-nav">
+          <button class="carousel-indicator current-slide" aria-label="Slide 1"></button>
+          <button class="carousel-indicator" aria-label="Slide 2"></button>
+          <button class="carousel-indicator" aria-label="Slide 3"></button>
+          <button class="carousel-indicator" aria-label="Slide 4"></button>
+          <button class="carousel-indicator" aria-label="Slide 5"></button>
+          <button class="carousel-indicator" aria-label="Slide 6"></button>
+          <button class="carousel-indicator" aria-label="Slide 7"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
     class="section-cta"
     style="padding: var(--spacing-xl) 0; background-color: var(--color-evergreen); color: var(--color-white); text-align: center;"
   >
@@ -158,3 +264,56 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 </Layout>
+
+<script>
+  const carousel = document.getElementById("home-carousel");
+  if (carousel) {
+    const track = carousel.querySelector<HTMLElement>(".carousel-track")!;
+    const slides = Array.from(track.children) as HTMLElement[];
+    const nextButton = carousel.querySelector<HTMLButtonElement>(".carousel-button--right")!;
+    const prevButton = carousel.querySelector<HTMLButtonElement>(".carousel-button--left")!;
+    const dotsNav = carousel.querySelector<HTMLElement>(".carousel-nav")!;
+    const dots = Array.from(dotsNav.children) as HTMLElement[];
+
+    let current = 0;
+
+    const setSlide = (idx: number) => {
+      current = idx;
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      slides.forEach((s, i) => s.classList.toggle("current-slide", i === idx));
+      dots.forEach((d, i) => d.classList.toggle("current-slide", i === idx));
+      prevButton.classList.toggle("is-hidden", idx === 0);
+      nextButton.classList.toggle("is-hidden", idx === slides.length - 1);
+    };
+
+    const AUTOPLAY_MS = 5000;
+    let timer: ReturnType<typeof setInterval> | undefined;
+    const advance = () => setSlide((current + 1) % slides.length);
+    const startAutoplay = () => {
+      stopAutoplay();
+      timer = setInterval(advance, AUTOPLAY_MS);
+    };
+    const stopAutoplay = () => {
+      if (timer) clearInterval(timer);
+    };
+
+    nextButton.addEventListener("click", () => {
+      if (current < slides.length - 1) setSlide(current + 1);
+      startAutoplay();
+    });
+    prevButton.addEventListener("click", () => {
+      if (current > 0) setSlide(current - 1);
+      startAutoplay();
+    });
+    dotsNav.addEventListener("click", (e) => {
+      const dot = (e.target as HTMLElement).closest("button");
+      if (!dot) return;
+      setSlide(dots.findIndex((d) => d === dot));
+      startAutoplay();
+    });
+
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", startAutoplay);
+    startAutoplay();
+  }
+</script>

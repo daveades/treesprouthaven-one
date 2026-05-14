@@ -1068,6 +1068,67 @@ section {
     object-fit: cover;
 }
 
+.home-carousel .carousel-figure {
+    position: relative;
+    margin: 0;
+}
+
+.home-carousel .carousel-image {
+    height: 520px;
+    object-fit: cover;
+    object-position: center top;
+    background-color: var(--color-beige);
+    display: block;
+    border-radius: 4px;
+}
+
+.home-carousel .carousel-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: var(--spacing-lg) var(--spacing-md);
+    color: var(--color-white);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.45) 60%, rgba(0, 0, 0, 0) 100%);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.home-carousel .carousel-caption .eyebrow {
+    color: #f5d9a8;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.home-carousel .carousel-caption h3 {
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin: 0 0 0.5rem;
+}
+
+.home-carousel .carousel-caption p {
+    color: var(--color-white);
+    opacity: 0.92;
+    max-width: 640px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .home-carousel .carousel-image {
+        height: 380px;
+    }
+
+    .home-carousel .carousel-caption {
+        padding: var(--spacing-md);
+    }
+
+    .home-carousel .carousel-caption h3 {
+        font-size: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .carousel-button {
         display: none;
