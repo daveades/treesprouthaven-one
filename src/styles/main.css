@@ -250,6 +250,13 @@ img {
     justify-content: center;
 }
 
+/* The lead-in rule reads awkwardly on narrow screens — drop it on mobile */
+@media (max-width: 768px) {
+    .eyebrow::before {
+        display: none;
+    }
+}
+
 /* Header */
 .site-header {
     position: fixed;
@@ -653,6 +660,11 @@ section {
     white-space: nowrap;
 }
 
+/* The About mission card has heavier padding, so less room for one line */
+.mission-text-card h2 {
+    font-size: clamp(1rem, 3.2vw + 0.38rem, 2.6rem);
+}
+
 .mission-text-card p {
     font-size: var(--text-base);
     line-height: var(--leading-normal);
@@ -731,6 +743,19 @@ section {
 
 .facilities-showcase {
     margin-top: var(--spacing-lg);
+}
+
+/* Keep the carousel copy left-aligned even where .split-layout centers
+   on smaller screens */
+.facilities-showcase .split-content {
+    text-align: left;
+}
+
+/* Mobile only: breathing room between the green heading and the copy below */
+@media (max-width: 768px) {
+    .facilities-showcase .split-content h3 {
+        margin-bottom: 0.6rem;
+    }
 }
 
 /* Services carousel: auto-slide, click to pause, arrows reveal on hover */
@@ -1040,10 +1065,6 @@ section {
     .mission-text-card {
         padding: var(--spacing-lg) var(--spacing-md);
         flex: auto;
-    }
-
-    .mission-text-card h2 {
-        font-size: 2rem;
     }
 
     .feature-list li {
@@ -1390,6 +1411,14 @@ section {
 
 .split-content .lead {
     margin-bottom: var(--spacing-md);
+}
+
+/* On mobile the split layout centers its text, so center the eyebrow too */
+@media (max-width: 900px) {
+    .section-about-teaser .split-content .eyebrow {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .split-image {
