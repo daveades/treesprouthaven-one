@@ -645,7 +645,8 @@ section {
 
 .mission-text-card h2,
 .section-about-teaser .split-content h2 {
-    font-size: var(--text-3xl);
+    /* Scales down on slim viewports so the single line never overflows */
+    font-size: clamp(1.25rem, 4vw + 0.45rem, 2.6rem);
     margin-bottom: var(--spacing-md);
     line-height: var(--leading-tight);
     color: var(--color-evergreen);
