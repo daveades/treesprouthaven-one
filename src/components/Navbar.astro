@@ -1,0 +1,63 @@
+---
+const pathname = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === "/" ? pathname === "/" : pathname.startsWith(href.replace(/\.html$/, ""));
+const onContact = pathname === "/contact" || pathname === "/contact/" || pathname === "/contact.html";
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Contact" },
+];
+---
+
+<header class="site-header scrolled" id="header">
+  <div class="container nav-container">
+    <a href="/" class="logo">
+      <img src="/logo.png" alt="TreeSproutHaven Logo" width="235" height="56" />
+    </a>
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        {links.map((l) => (
+          <li>
+            <a href={l.href} class={isActive(l.href) ? "active" : undefined}>{l.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a
+        href="/contact"
+        class:list={["btn", "btn-primary", { "is-invisible": onContact }]}
+        aria-hidden={onContact}
+        tabindex={onContact ? -1 : undefined}
+      >
+        Get Support
+      </a>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+        <i class="ph ph-list"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const nav = document.getElementById("nav-links");
+  if (btn && nav) {
+    const icon = btn.querySelector("i");
+    btn.addEventListener("click", () => {
+      const open = nav.classList.toggle("active");
+      icon?.classList.toggle("ph-list", !open);
+      icon?.classList.toggle("ph-x", open);
+    });
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("active");
+        icon?.classList.remove("ph-x");
+        icon?.classList.add("ph-list");
+      });
+    });
+  }
+</script>

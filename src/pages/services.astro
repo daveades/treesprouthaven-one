@@ -1,0 +1,220 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Our Services | TreeSproutHaven">
+  <section class="page-header">
+    <div class="container">
+      <h1>Our Services</h1>
+      <p class="lead">Holistic support for body, mind, and spirit.</p>
+    </div>
+  </section>
+
+  <section id="services" class="section-services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">What We Offer</span>
+        <h2>Holistic Support</h2>
+        <p>
+          We offer a continuum of care designed to address the physical,
+          emotional, and social needs of our community members.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal stagger-1">
+          <i class="ph ph-shield-check"></i>
+          <h3>Trauma-Informed Care</h3>
+          <p>
+            Prioritizing safety, trust, collaboration, empowerment, and
+            cultural humility in every interaction.
+          </p>
+        </div>
+        <div class="service-card reveal stagger-2">
+          <i class="ph ph-hand-heart"></i>
+          <h3>Harm Reduction</h3>
+          <p>
+            Supporting individuals in reducing negative consequences of
+            substance use while facilitating recovery options.
+          </p>
+        </div>
+        <div class="service-card reveal stagger-3">
+          <i class="ph ph-users-three"></i>
+          <h3>Family Reunification</h3>
+          <p>
+            Certified mediators support participants in repairing family
+            relationships and navigating complex systems.
+          </p>
+        </div>
+        <div class="service-card reveal stagger-4">
+          <i class="ph ph-first-aid"></i>
+          <h3>Addiction Recovery</h3>
+          <p>
+            Peer-led and clinical services, including group therapy, recovery
+            circles, and wraparound case management.
+          </p>
+        </div>
+        <div class="service-card reveal stagger-1">
+          <i class="ph ph-feather"></i>
+          <h3>Indigenous Culture</h3>
+          <p>
+            Centering Indigenous knowledge through elder guidance, land-based
+            healing, and ceremonial supports.
+          </p>
+        </div>
+        <div class="service-card reveal stagger-2">
+          <i class="ph ph-house-line"></i>
+          <h3>Transitional Housing</h3>
+          <p>
+            Safe, stable housing with wraparound supports for employment,
+            education, and long-term stability.
+          </p>
+        </div>
+      </div>
+
+      <div class="facilities-showcase reveal">
+        <div class="carousel" id="facilities-carousel">
+          <div class="carousel-track-container">
+            <ul class="carousel-track">
+              <li class="carousel-slide current-slide">
+                <div class="split-layout reverse">
+                  <div class="split-content">
+                    <span class="eyebrow">Sanctuaries of Peace</span>
+                    <h3>Transitional Housing</h3>
+                    <p>
+                      Our private living quarters are designed to provide
+                      safety, dignity, and a sense of ownership. Each unit is
+                      fully furnished and offers a quiet retreat for rest and
+                      reflection.
+                    </p>
+                    <ul class="feature-list">
+                      <li><i class="ph ph-check-circle"></i> Private, secure apartments</li>
+                      <li><i class="ph ph-check-circle"></i> Family-friendly configurations</li>
+                      <li><i class="ph ph-check-circle"></i> 24/7 Support staff availability</li>
+                    </ul>
+                  </div>
+                  <div class="split-image">
+                    <img
+                      src="/housing-indigenous.png"
+                      alt="Indigenous family in transitional housing"
+                      class="rounded-image carousel-image"
+                    />
+                  </div>
+                </div>
+              </li>
+              <li class="carousel-slide">
+                <div class="split-layout reverse">
+                  <div class="split-content">
+                    <span class="eyebrow">Sanctuaries of Peace</span>
+                    <h3>Wellness & Healing</h3>
+                    <p>
+                      Our communal wellness spaces are grounded in Indigenous
+                      culture, offering a place for ceremony, counseling, and
+                      connection with Elders. Nature is integrated into every
+                      design choice.
+                    </p>
+                    <ul class="feature-list">
+                      <li><i class="ph ph-check-circle"></i> Smudging and ceremony rooms</li>
+                      <li><i class="ph ph-check-circle"></i> Therapeutic gardens and quiet zones</li>
+                      <li><i class="ph ph-check-circle"></i> Group counseling circles</li>
+                    </ul>
+                  </div>
+                  <div class="split-image">
+                    <img
+                      src="/wellness-indigenous.png"
+                      alt="Elder offering guidance in wellness room"
+                      class="rounded-image carousel-image"
+                    />
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <button class="carousel-button carousel-button--left" aria-label="Previous slide">
+            <i class="ph ph-caret-left"></i>
+          </button>
+          <button class="carousel-button carousel-button--right" aria-label="Next slide">
+            <i class="ph ph-caret-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const carousel = document.getElementById("facilities-carousel");
+  const track = carousel?.querySelector<HTMLElement>(".carousel-track");
+  if (carousel && track) {
+    const realSlides = Array.from(track.children) as HTMLElement[];
+    const total = realSlides.length;
+    const nextButton = carousel.querySelector<HTMLButtonElement>(".carousel-button--right")!;
+    const prevButton = carousel.querySelector<HTMLButtonElement>(".carousel-button--left")!;
+    const AUTOPLAY_MS = 7000;
+    // Slide transition plus the content stagger needs to fully settle before
+    // we reset, so the clone and the real first slide look identical.
+    const SETTLE_MS = 1200;
+
+    // Clone the first slide so the loop only ever moves forward.
+    const clone = realSlides[0].cloneNode(true) as HTMLElement;
+    clone.classList.remove("current-slide");
+    track.appendChild(clone);
+    const allSlides = Array.from(track.children) as HTMLElement[];
+
+    let current = 0;
+    let timer: ReturnType<typeof setInterval> | undefined;
+    let snapTimer: ReturnType<typeof setTimeout> | undefined;
+    let paused = false;
+
+    // Jump from the clone back to the real first slide with every transition
+    // suppressed. Both are identical and fully settled, so it is invisible.
+    function snapBack() {
+      if (current !== total) return;
+      carousel!.classList.add("is-snapping");
+      setSlide(0);
+      void track!.offsetWidth;
+      carousel!.classList.remove("is-snapping");
+    }
+
+    const setSlide = (idx: number) => {
+      current = idx;
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      allSlides.forEach((s, i) => s.classList.toggle("current-slide", i === idx));
+      if (snapTimer) clearTimeout(snapTimer);
+      if (idx === total) snapTimer = setTimeout(snapBack, SETTLE_MS);
+    };
+
+    const advance = () => {
+      if (current < total) setSlide(current + 1);
+    };
+
+    const play = () => {
+      if (timer) clearInterval(timer);
+      timer = setInterval(advance, AUTOPLAY_MS);
+    };
+    const stop = () => {
+      if (timer) clearInterval(timer);
+      timer = undefined;
+    };
+
+    carousel.addEventListener("click", () => {
+      paused = !paused;
+      carousel.classList.toggle("is-paused", paused);
+      if (paused) stop();
+      else play();
+    });
+
+    nextButton.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (current < total) setSlide(current + 1);
+      if (!paused) play();
+    });
+    prevButton.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (current > 0) setSlide(current - 1);
+      if (!paused) play();
+    });
+
+    play();
+  }
+</script>
