@@ -8,7 +8,6 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
 ---
@@ -16,7 +15,7 @@ const links = [
 <header class="site-header scrolled" id="header">
   <div class="container nav-container">
     <a href="/" class="logo">
-      <img src="/logo.png" alt="TreeSproutHaven Logo" />
+      <img src="/logo.png" alt="TreeSproutHaven Logo" width="235" height="56" />
     </a>
     <nav>
       <ul class="nav-links" id="nav-links">
@@ -28,9 +27,14 @@ const links = [
       </ul>
     </nav>
     <div class="header-actions">
-      {!onContact && (
-        <a href="/contact" class="btn btn-primary">Get Support</a>
-      )}
+      <a
+        href="/contact"
+        class:list={["btn", "btn-primary", { "is-invisible": onContact }]}
+        aria-hidden={onContact}
+        tabindex={onContact ? -1 : undefined}
+      >
+        Get Support
+      </a>
       <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
         <i class="ph ph-list"></i>
       </button>

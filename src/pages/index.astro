@@ -23,34 +23,20 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <section
-    class="section-about-teaser"
-    style="padding: var(--spacing-xl) 0; background-color: var(--color-white);"
-  >
+  <section class="section-about-teaser section--white">
     <div class="container">
       <div class="split-layout">
-        <div class="split-image">
+        <div class="split-image reveal-left">
           <img
             src="/community-gathering.jpg"
             alt="Community gathering"
             class="rounded-image"
-            style="height: 100%; object-fit: cover; max-height: 400px; width: 100%; border-radius: 4px;"
           />
         </div>
-        <div
-          class="split-content"
-          style="display: flex; flex-direction: column; justify-content: center;"
-        >
-          <span class="eyebrow" style="color: #9f3a1f;">Who We Are</span>
-          <h2
-            style="font-size: 2.5rem; margin-bottom: var(--spacing-sm); color: var(--color-evergreen);"
-          >
-            A Foundation for Growth
-          </h2>
-          <p
-            class="lead"
-            style="margin-bottom: var(--spacing-md); color: #666; line-height: 1.6;"
-          >
+        <div class="split-content reveal-right">
+          <span class="eyebrow">Who We Are</span>
+          <h2>A Foundation for Growth</h2>
+          <p class="lead">
             TreeSproutHaven is a trauma-informed community organization
             dedicated to supporting at-risk individuals—particularly those who
             are marginalized by systemic barriers. We believe in the power of
@@ -64,91 +50,46 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <section
-    class="section-services-highlight"
-    style="padding: var(--spacing-xl) 0; background-color: #f7f6f3;"
-  >
+  <section class="section-services-highlight section--sand">
     <div class="container">
-      <div
-        class="section-header"
-        style="text-align: center; margin-bottom: var(--spacing-lg);"
-      >
-        <span class="eyebrow" style="color: #9f3a1f;">What We Offer</span>
-        <h2 style="color: var(--color-evergreen);">Holistic Support</h2>
+      <div class="section-header">
+        <span class="eyebrow">What We Offer</span>
+        <h2>Holistic Support</h2>
       </div>
-      <div
-        class="services-grid"
-        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-md);"
-      >
-        <div
-          class="service-card reveal stagger-1"
-          style="background: white; padding: var(--spacing-md); border-radius: 2px; text-align: center; border: 1px solid rgba(0,0,0,0.03);"
-        >
-          <i
-            class="ph ph-shield-check"
-            style="font-size: 2.5rem; color: var(--color-evergreen); margin-bottom: var(--spacing-sm); display: inline-block; background: var(--color-beige); padding: 12px; border-radius: 50%;"
-          ></i>
-          <h3
-            style="color: var(--color-evergreen); margin-bottom: 0.5rem; font-family: var(--font-heading);"
-          >
-            Trauma-Informed Care
-          </h3>
-          <p style="color: #666;">
+      <div class="services-grid">
+        <div class="service-card reveal stagger-1">
+          <i class="ph ph-shield-check"></i>
+          <h3>Trauma-Informed Care</h3>
+          <p>
             Prioritizing safety, trust, and empowerment in every interaction.
           </p>
         </div>
-        <div
-          class="service-card reveal stagger-2"
-          style="background: white; padding: var(--spacing-md); border-radius: 2px; text-align: center; border: 1px solid rgba(0,0,0,0.03);"
-        >
-          <i
-            class="ph ph-first-aid"
-            style="font-size: 2.5rem; color: var(--color-evergreen); margin-bottom: var(--spacing-sm); display: inline-block; background: var(--color-beige); padding: 12px; border-radius: 50%;"
-          ></i>
-          <h3
-            style="color: var(--color-evergreen); margin-bottom: 0.5rem; font-family: var(--font-heading);"
-          >
-            Addiction Recovery
-          </h3>
-          <p style="color: #666;">
+        <div class="service-card reveal stagger-2">
+          <i class="ph ph-first-aid"></i>
+          <h3>Addiction Recovery</h3>
+          <p>
             Peer-led support circles and clinical wraparound case management.
           </p>
         </div>
-        <div
-          class="service-card reveal stagger-3"
-          style="background: white; padding: var(--spacing-md); border-radius: 2px; text-align: center; border: 1px solid rgba(0,0,0,0.03);"
-        >
-          <i
-            class="ph ph-house-line"
-            style="font-size: 2.5rem; color: var(--color-evergreen); margin-bottom: var(--spacing-sm); display: inline-block; background: var(--color-beige); padding: 12px; border-radius: 50%;"
-          ></i>
-          <h3
-            style="color: var(--color-evergreen); margin-bottom: 0.5rem; font-family: var(--font-heading);"
-          >
-            Transitional Housing
-          </h3>
-          <p style="color: #666;">
+        <div class="service-card reveal stagger-3">
+          <i class="ph ph-house-line"></i>
+          <h3>Transitional Housing</h3>
+          <p>
             Safe, stable housing designed to foster dignity and ownership.
           </p>
         </div>
       </div>
-      <div style="text-align: center; margin-top: var(--spacing-lg);">
+      <div class="section-actions">
         <a href="/services" class="btn btn-outline-green">View All Services</a>
       </div>
     </div>
   </section>
 
-  <section
-    class="section-gallery"
-    style="padding: var(--spacing-xl) 0; background-color: var(--color-white);"
-  >
+  <section class="section-gallery section--white">
     <div class="container">
-      <div
-        class="section-header"
-        style="text-align: center; margin-bottom: var(--spacing-lg);"
-      >
-        <span class="eyebrow" style="color: #9f3a1f;">What We Do</span>
-        <h2 style="color: var(--color-evergreen);">Care in Practice</h2>
+      <div class="section-header">
+        <span class="eyebrow">What We Do</span>
+        <h2>Care in Practice</h2>
       </div>
       <div class="carousel home-carousel" id="home-carousel">
         <div class="carousel-track-container">
@@ -244,23 +185,16 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <section
-    class="section-cta"
-    style="padding: var(--spacing-xl) 0; background-color: var(--color-evergreen); color: var(--color-white); text-align: center;"
-  >
-    <div class="container reveal">
-      <h2
-        style="color: var(--color-white); margin-bottom: var(--spacing-sm); font-size: 2.5rem;"
-      >
-        Ready to Find Support?
-      </h2>
-      <p
-        style="font-size: 1.25rem; opacity: 0.9; margin-bottom: var(--spacing-md); max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;"
-      >
-        We are here to listen, support, and help you navigate your journey to
-        recovery and reconnection.
-      </p>
-      <a href="/contact" class="btn btn-primary">Get in Touch</a>
+  <section class="section-cta section--evergreen">
+    <div class="container">
+      <div class="cta reveal">
+        <h2>Ready to Find Support?</h2>
+        <p>
+          We are here to listen, support, and help you navigate your journey to
+          recovery and reconnection.
+        </p>
+        <a href="/contact" class="btn btn-primary">Get in Touch</a>
+      </div>
     </div>
   </section>
 </Layout>
@@ -269,26 +203,51 @@ import Layout from "../layouts/Layout.astro";
   const carousel = document.getElementById("home-carousel");
   if (carousel) {
     const track = carousel.querySelector<HTMLElement>(".carousel-track")!;
-    const slides = Array.from(track.children) as HTMLElement[];
+    const realSlides = Array.from(track.children) as HTMLElement[];
+    const total = realSlides.length;
     const nextButton = carousel.querySelector<HTMLButtonElement>(".carousel-button--right")!;
     const prevButton = carousel.querySelector<HTMLButtonElement>(".carousel-button--left")!;
     const dotsNav = carousel.querySelector<HTMLElement>(".carousel-nav")!;
     const dots = Array.from(dotsNav.children) as HTMLElement[];
 
+    // Clone the first slide and append it so the loop only ever moves forward.
+    const clone = realSlides[0].cloneNode(true) as HTMLElement;
+    clone.classList.remove("current-slide");
+    track.appendChild(clone);
+    const allSlides = Array.from(track.children) as HTMLElement[];
+
+    // Slide transition (0.7s) plus the caption stagger needs to fully settle
+    // before we reset, so the clone and the real first slide look identical.
+    const SETTLE_MS = 1200;
     let current = 0;
+    let snapTimer: ReturnType<typeof setTimeout> | undefined;
+
+    // Jump from the clone back to the real first slide with every transition
+    // suppressed. Both are identical and fully settled, so it is invisible.
+    function snapBack() {
+      if (current !== total) return;
+      carousel.classList.add("is-snapping");
+      setSlide(0);
+      void track.offsetWidth;
+      carousel.classList.remove("is-snapping");
+    }
 
     const setSlide = (idx: number) => {
       current = idx;
       track.style.transform = `translateX(-${idx * 100}%)`;
-      slides.forEach((s, i) => s.classList.toggle("current-slide", i === idx));
-      dots.forEach((d, i) => d.classList.toggle("current-slide", i === idx));
+      allSlides.forEach((s, i) => s.classList.toggle("current-slide", i === idx));
+      const real = idx % total;
+      dots.forEach((d, i) => d.classList.toggle("current-slide", i === real));
       prevButton.classList.toggle("is-hidden", idx === 0);
-      nextButton.classList.toggle("is-hidden", idx === slides.length - 1);
+      if (snapTimer) clearTimeout(snapTimer);
+      if (idx === total) snapTimer = setTimeout(snapBack, SETTLE_MS);
     };
 
     const AUTOPLAY_MS = 5000;
     let timer: ReturnType<typeof setInterval> | undefined;
-    const advance = () => setSlide((current + 1) % slides.length);
+    const advance = () => {
+      if (current < total) setSlide(current + 1);
+    };
     const startAutoplay = () => {
       stopAutoplay();
       timer = setInterval(advance, AUTOPLAY_MS);
@@ -298,7 +257,7 @@ import Layout from "../layouts/Layout.astro";
     };
 
     nextButton.addEventListener("click", () => {
-      if (current < slides.length - 1) setSlide(current + 1);
+      if (current < total) setSlide(current + 1);
       startAutoplay();
     });
     prevButton.addEventListener("click", () => {

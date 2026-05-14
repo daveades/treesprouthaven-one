@@ -15,7 +15,7 @@ import Layout from "../layouts/Layout.astro";
       <div class="section-header reveal">
         <span class="eyebrow">What We Offer</span>
         <h2>Holistic Support</h2>
-        <p style="max-width: 600px; margin: 0 auto; color: #666;">
+        <p>
           We offer a continuum of care designed to address the physical,
           emotional, and social needs of our community members.
         </p>
@@ -72,7 +72,7 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </div>
 
-      <div class="facilities-showcase reveal" style="margin-top: var(--spacing-xl);">
+      <div class="facilities-showcase reveal">
         <div class="carousel" id="facilities-carousel">
           <div class="carousel-track-container">
             <ul class="carousel-track">
@@ -130,16 +130,12 @@ import Layout from "../layouts/Layout.astro";
               </li>
             </ul>
           </div>
-          <button class="carousel-button carousel-button--left is-hidden">
+          <button class="carousel-button carousel-button--left" aria-label="Previous slide">
             <i class="ph ph-caret-left"></i>
           </button>
-          <button class="carousel-button carousel-button--right">
+          <button class="carousel-button carousel-button--right" aria-label="Next slide">
             <i class="ph ph-caret-right"></i>
           </button>
-          <div class="carousel-nav">
-            <button class="carousel-indicator current-slide"></button>
-            <button class="carousel-indicator"></button>
-          </div>
         </div>
       </div>
     </div>
@@ -147,80 +143,78 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-  const track = document.querySelector<HTMLElement>(".carousel-track");
-  if (track) {
-    const slides = Array.from(track.children) as HTMLElement[];
-    const nextButton = document.querySelector<HTMLButtonElement>(".carousel-button--right")!;
-    const prevButton = document.querySelector<HTMLButtonElement>(".carousel-button--left")!;
-    const dotsNav = document.querySelector<HTMLElement>(".carousel-nav")!;
-    const dots = Array.from(dotsNav.children) as HTMLElement[];
+  const carousel = document.getElementById("facilities-carousel");
+  const track = carousel?.querySelector<HTMLElement>(".carousel-track");
+  if (carousel && track) {
+    const realSlides = Array.from(track.children) as HTMLElement[];
+    const total = realSlides.length;
+    const nextButton = carousel.querySelector<HTMLButtonElement>(".carousel-button--right")!;
+    const prevButton = carousel.querySelector<HTMLButtonElement>(".carousel-button--left")!;
+    const AUTOPLAY_MS = 7000;
+    // Slide transition plus the content stagger needs to fully settle before
+    // we reset, so the clone and the real first slide look identical.
+    const SETTLE_MS = 1200;
 
-    const moveToSlide = (currentSlide: HTMLElement, targetSlide: HTMLElement) => {
-      const targetIndex = slides.findIndex((s) => s === targetSlide);
-      track.style.transform = `translateX(-${targetIndex * 100}%)`;
-      currentSlide.classList.remove("current-slide");
-      targetSlide.classList.add("current-slide");
+    // Clone the first slide so the loop only ever moves forward.
+    const clone = realSlides[0].cloneNode(true) as HTMLElement;
+    clone.classList.remove("current-slide");
+    track.appendChild(clone);
+    const allSlides = Array.from(track.children) as HTMLElement[];
+
+    let current = 0;
+    let timer: ReturnType<typeof setInterval> | undefined;
+    let snapTimer: ReturnType<typeof setTimeout> | undefined;
+    let paused = false;
+
+    // Jump from the clone back to the real first slide with every transition
+    // suppressed. Both are identical and fully settled, so it is invisible.
+    function snapBack() {
+      if (current !== total) return;
+      carousel!.classList.add("is-snapping");
+      setSlide(0);
+      void track!.offsetWidth;
+      carousel!.classList.remove("is-snapping");
+    }
+
+    const setSlide = (idx: number) => {
+      current = idx;
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      allSlides.forEach((s, i) => s.classList.toggle("current-slide", i === idx));
+      if (snapTimer) clearTimeout(snapTimer);
+      if (idx === total) snapTimer = setTimeout(snapBack, SETTLE_MS);
     };
 
-    const updateDots = (currentDot: HTMLElement, targetDot: HTMLElement) => {
-      currentDot.classList.remove("current-slide");
-      targetDot.classList.add("current-slide");
+    const advance = () => {
+      if (current < total) setSlide(current + 1);
     };
 
-    const hideShowArrows = (targetIndex: number) => {
-      prevButton.classList.toggle("is-hidden", targetIndex === 0);
-      nextButton.classList.toggle("is-hidden", targetIndex === slides.length - 1);
+    const play = () => {
+      if (timer) clearInterval(timer);
+      timer = setInterval(advance, AUTOPLAY_MS);
+    };
+    const stop = () => {
+      if (timer) clearInterval(timer);
+      timer = undefined;
     };
 
-    const go = (delta: number) => {
-      const currentSlide = track.querySelector<HTMLElement>(".current-slide")!;
-      const target = delta > 0 ? currentSlide.nextElementSibling : currentSlide.previousElementSibling;
-      if (!target) return;
-      const currentDot = dotsNav.querySelector<HTMLElement>(".current-slide")!;
-      const targetDot = (delta > 0 ? currentDot.nextElementSibling : currentDot.previousElementSibling) as HTMLElement;
-      const idx = slides.findIndex((s) => s === target);
-      moveToSlide(currentSlide, target as HTMLElement);
-      updateDots(currentDot, targetDot);
-      hideShowArrows(idx);
-    };
-
-    nextButton.addEventListener("click", () => go(1));
-    prevButton.addEventListener("click", () => go(-1));
-
-    dotsNav.addEventListener("click", (e) => {
-      const targetDot = (e.target as HTMLElement).closest("button");
-      if (!targetDot) return;
-      const currentSlide = track.querySelector<HTMLElement>(".current-slide")!;
-      const currentDot = dotsNav.querySelector<HTMLElement>(".current-slide")!;
-      const idx = dots.findIndex((d) => d === targetDot);
-      const targetSlide = slides[idx];
-      moveToSlide(currentSlide, targetSlide);
-      updateDots(currentDot, targetDot as HTMLElement);
-      hideShowArrows(idx);
+    carousel.addEventListener("click", () => {
+      paused = !paused;
+      carousel.classList.toggle("is-paused", paused);
+      if (paused) stop();
+      else play();
     });
 
-    let touchStartX = 0;
-    track.addEventListener(
-      "touchstart",
-      (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-      },
-      { passive: true },
-    );
-    track.addEventListener(
-      "touchend",
-      (e) => {
-        const touchEndX = e.changedTouches[0].screenX;
-        const threshold = 50;
-        if (touchEndX < touchStartX - threshold) go(1);
-        if (touchEndX > touchStartX + threshold) go(-1);
-      },
-      { passive: true },
-    );
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowRight") go(1);
-      if (e.key === "ArrowLeft") go(-1);
+    nextButton.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (current < total) setSlide(current + 1);
+      if (!paused) play();
     });
+    prevButton.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (current > 0) setSlide(current - 1);
+      if (!paused) play();
+    });
+
+    play();
   }
 </script>
