@@ -660,9 +660,10 @@ section {
     white-space: nowrap;
 }
 
-/* The About mission card has heavier padding, so less room for one line */
+/* The About mission card has heavier padding, so less room for one line.
+   Stays clearly larger than the italic quote (--text-xl) beneath it. */
 .mission-text-card h2 {
-    font-size: clamp(1rem, 3.2vw + 0.38rem, 2.6rem);
+    font-size: clamp(1.28rem, 5.8vw + 0.14rem, 2.8rem);
 }
 
 .mission-text-card p {
@@ -1055,6 +1056,8 @@ section {
     .mission-container {
         flex-direction: column-reverse;
         /* Image on top, text below */
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     .mission-image-wrapper {
